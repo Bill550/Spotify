@@ -1,0 +1,17 @@
+<?php
+class Constants {
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    public static $passwordsDoNotMatch = "Your Passwords Don't Match!";
+    public static $passwordNotAlphanumeric = "Your Password can only Contain Numbers And Letters!";
+    public static $passwordCharacters = "Your Password must be Between 5 and 30 characters";
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    public static $EmailInvalid = "Your Email is Invalid!";
+    public static $EmailsDoNotMatch = "Your Emails Don't Match!";
+    //////////////////////////////////////////////////////////////////////////////////////////////////
+    public static $LastNameCharacters = "Your Last Name must be Between 2 and 25 characters";
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    public static $FirstNameCharacters = "Your First Name must be Between 2 and 25 characters";
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    public static $UserNameCharacters = "Your Username must be Between 5 and 25 characters";
+}
+?>
