@@ -1,0 +1,146 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+#background{
+    background-color: #000;
+    background-image: url(../Images/Register-Wallpaper/9.jpg);
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+#loginContainer * {
+    color: #ffe2ff;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: normal;
+    line-height: 1em;
+    box-sizing: border-box;
+}
+#loginContainer{
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1024px;
+}
+#inputContainer{
+    width: 400px;
+    padding: 45px;
+    float: left;
+    /* border-right: 1px solid #999; */
+}
+#inputContainer h2{
+    text-align: center;
+}
+#inputContainer input[type="text"],
+#inputContainer input[type="email"],
+#inputContainer input[type="password"] {
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #ffe2ff;
+    height: 27px;
+    line-height: 27px;
+    width: 100%;
+    outline: none;
+    box-shadow: none;
+}
+#inputContainer label{
+    /* color: #304C50; */
+    color: #ffe2ff;
+    font-size: 13px;
+    margin-top: 15px;
+    display: block;
+}
+/* ////////////////// Place Holder Form StackOverFlow/////////////////// */
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #efb1ff;
+}
+
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #efb1ff;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #efb1ff;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #efb1ff;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #efb1ff;
+}
+
+::placeholder {
+    /* Most modern browsers support this now. */
+    color: #efb1ff;
+}
+/* /////////////////////////////////////////////////////////// */
+#inputContainer button {
+    background-color: transparent;
+    border: 2px solid #ffe2ff;
+    border-radius: 250px;
+    color: #ffe2ff;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 41px;
+    width: 100%;
+}
+#inputContainer button{
+    cursor: pointer;
+}
+.hasAccountText span{
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+.hasAccountText{
+    text-align: center;
+}
+
+/* ///////////////////////// For Form Sliding ///////////////////////////////// */
+#RegisterForm,
+#LoginForm{
+    display: none;
+}
+/* /////////////////////////////////////////////////////////////////////////////////// */
+#loginText{
+    padding: 45px;
+    display: table-cell;
+}
+#loginText h1{
+    color: #0F0B24;
+    font-size: 60px;
+    font-weight: bold;
+}
+#loginText h2{
+    margin: 20px 0;
+}
+#loginText ul{
+    padding: 0;
+}
+#loginText li{
+    font-size: 15px;
+    list-style-type: none;
+    padding: 5px 30px;
+    background: url(../Images/Icons/checkmark.png) no-repeat 0 0;
+}
+/* ////////////////////////////////---Error---/////////////////////////////////////////////// */
+#inputContainer .errorMessage {
+    color: #E9A9AC;
+    font-size: 15px;
+    display: block;
+}
