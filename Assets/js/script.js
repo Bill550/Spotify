@@ -91,3 +91,8 @@ function Audio() {
     }
 
 }
+/////////////////////////////////////////////////////////////////////////////
+/////////////////--- FOR ARTIST PAGE (PLAY)BUTTON ---//////////////////////
+function playFirstSong(params) {
+    setTrack(tempPlaylist[0], tempPlaylist, true)
+}

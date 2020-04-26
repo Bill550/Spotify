@@ -173,12 +173,15 @@
             $.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
                 var artist = JSON.parse(data);
                 $(".ArtistName span").text(artist.name);
+                $(".ArtistName span").attr("onclick", "openPage('artist.php?id=" + artist.id +" ')" );
             });
             //////////////////////////////////////////////////////////////////////////
             ///////////////////GETTING ALBUM USING JSON //////////////////////////////
                 $.post("includes/handlers/ajax/getAlbumJson.php", { albumid: track.album }, function(data) {
                 var album = JSON.parse(data);
                 $(".albumLink img").attr("src", album.artworkPath);
+                $(".albumLink img").attr("onclick", "openPage('album.php?id=" + album.id +" ')" );
+                $(".trackName span").attr("onclick", "openPage('album.php?id=" + album.id +" ')" );
             });
             /////////////////////////////////////////////////////////////////////////
             audioElement.setTrack(track);
@@ -214,15 +217,15 @@
                 <div id="nowPlayingLeft">
                     <div class="content">
                         <span class="albumLink">
-                            <img class="albumArtwork" src="">
+                            <img role = "link" tabindex="0" class="albumArtwork" >
                         </span>
                         <div class="trackInfo">
                             <span class="trackName">
-                                <span>Haye Dil Bechara</span>
+                                <span role = "link" tabindex="0"></span>
                             </span>
 
                             <span class="ArtistName">
-                                <span>Jimmy khan</span>
+                                <span role = "link" tabindex="0"></span>
                             </span>
                         </div>
                     </div>
