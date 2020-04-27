@@ -15,7 +15,7 @@
 
                     <div class="group">
                         <div class="navItem">
-                            <span onclick = "openPage('browse.php')" role="link" tabindex="0" class="navItemLink">Browse</span>
+                            <span onclick = "openPage('browser.php')" role="link" tabindex="0" class="navItemLink">Browse</span>
                         </div>
                         <div class="navItem">
                             <span onclick = "openPage('yourMusic.php')" role="link" tabindex="0" class="navItemLink">Your Music</span>

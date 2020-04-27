@@ -338,11 +338,54 @@ body {
 }
 
 .trackListContainer h2,
-.gridViewContain h2 {
+.gridViewContain h2,
+.artistsContainer h2 {
     text-align: center;    
 }
 /* ////////////////////////ARTIST NAME, ALBUM COVER, SONG ON PLAYINGBAR /////////////////////////// */
 [role = "link"]{
     cursor: pointer;
 }
+/* //////////////////////// SEARCH PAGE /////////////////////////// */
+.searchContainer{
+    background-color: #242424;
+    padding: 20px 28px;
+}
+.searchContainer h4{
+    margin: 0;
+    font-weight: 300;
+}
+.searchInput{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: 2px;
+}
+input:focus{
+    outline: none;
+}
+/* span:focus {
+    outline: none;
+} */
+.searchResultRow{
+    padding: 15px 10px;
+}
+.searchResultRow:hover{
+    background-color: #282828;
+}
+.searchResultRow .artistName span {
+    color: #fff;
+}
+.noResult{
+    margin: 15px;
+    display: block;
+}
+
+
+
+
+
 

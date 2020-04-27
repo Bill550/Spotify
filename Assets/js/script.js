@@ -7,8 +7,12 @@ var currentIndex = 0;
 var repeat = false; 
 var Shuffle = false;
 var userLoggedIn;
+var timer;
 //////////////////--- FOR PAGE TRANSITIONS ---////////////////////
 function openPage(url){
+    if (timer != null) {
+        clearTimeout(timer);
+    }
     if (url.indexOf("?") == -1) {
         url = url + "?";
     }
