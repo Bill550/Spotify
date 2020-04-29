@@ -3,7 +3,7 @@
 ?>
 
 <h1 class="pageHeadingBig">You Might Also Like</h1>
-    <div class="gridViewContain">
+    <div class="gridViewContainer">
         <?php
             $albumQuery = mysqli_query($con,"SELECT * FROM album ORDER BY RAND() LIMIT 10");
             while($row = mysqli_fetch_array($albumQuery)){

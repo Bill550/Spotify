@@ -115,7 +115,7 @@
     ?>
 </div>
 
-<div class="gridViewContain">
+<div class="gridViewContainer">
             <h2>ALBUMS</h2>
         <?php
             $albumQuery = mysqli_query($con,"SELECT * FROM album WHERE title LIKE '$term%' LIMIT 10");

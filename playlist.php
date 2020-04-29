@@ -3,50 +3,50 @@
     include("includes/IncludedFiles.php"); 
 
 if (isset($_GET['id'])) {
-    $albumid = $_GET['id'];
+    $playlistId = $_GET['id'];
 }
 else {
     header("Location: index.php");
 }
 
-$album = new Album($con, $albumid);
-$artist = $album->getArtist();
-$artistId = $artist->getId();
+$playlist = new Playlist($con, $playlistId);
+$owner = new User($con, $playlist->getOwner());
 ?>
 
 <div class="EntityInfo">
     <div class="leftSection">
-        <img src=" <?php echo $album->getArtworkPath(); ?> ">
+        <div class="playlistImage">
+            <img src=" Assets/Images/Icons/playlist.png ">
+        </div>
     </div>
 
     <div class="rightSection">
-        <h2> <?php echo $album->getTitle(); ?> </h2>
-        <p role="link" tabindex="0" onclick="openPage('artist.php?id=$artistId')">By: 
-                <?php echo $artist->getName(); ?></p>
-                
-        <p> <?php echo $album->getNumberOfSongs(); ?> Songs</p>
-
+        <h2> <?php echo $playlist->getName(); ?> </h2>
+        <p>By: <?php echo $playlist->getOwner(); ?></p>
+        <p> <?php echo $playlist->getNumberOfSongs(); ?> Songs</p>
+        <button class="button" onclick="deletePlaylist('<?php echo $playlistId; ?>')">DELETE PLAYLIST</button>
     </div>
 </div>
 <div class="trackListContainer">
     <ul class="trackList">
         <?php
-            $songIdArray = $album->getSongIDs();
+            $songIdArray = $playlist->getSongIDs();
             $i = 1;
             foreach ($songIdArray as $songId) {
 
-                $albumSong = new Song($con, $songId);
-                $albumArtist = $albumSong->getArtist();
+                $playlistSong = new Song($con, $songId);
+                $aongArtist = $playlistSong->getArtist();
                 echo "  <li class='trackListRow'>
 
                             <div class='TrackCount'>
-                                <img class='Play' src='Assets/Images/Icons/play-2.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true )' >
+                                <img class='Play' src='Assets/Images/Icons/play-2.png' onclick='setTrack(\"" 
+                                . $playlistSong->getId() . "\", tempPlaylist, true )' >
                                 <span class='trackNumber'>$i</span>
                             </div>
 
                             <div class='Trackinfo'>
-                                <span class='trackName'>".$albumSong->getTitle()."</span>
-                                <span class='artistName'>".$albumArtist->getName()."</span>
+                                <span class='trackName'>".$playlistSong->getTitle()."</span>
+                                <span class='artistName'>".$aongArtist->getName()."</span>
                             </div>
                             
                             <div class = 'trackOption'>
@@ -54,7 +54,7 @@ $artistId = $artist->getId();
                             </div>
 
                             <div class= 'trackDuration'>
-                                <span class= 'duration'>". $albumSong->getDuratione() ."</span>
+                                <span class= 'duration'>". $playlistSong->getDuratione() ."</span>
                             </div>
 
                         </li>";

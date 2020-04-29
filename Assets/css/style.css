@@ -193,7 +193,7 @@ body {
     text-align: center;
 }
 /* /////////////////////////////////////////////////////////////////// */
-.gridViewContain .gridViewItem {
+.gridViewContainer .gridViewItem {
     display: inline-block;
     margin-right: 20px;
     width: 29%;
@@ -338,7 +338,7 @@ body {
 }
 
 .trackListContainer h2,
-.gridViewContain h2,
+.gridViewContainer h2,
 .artistsContainer h2 {
     text-align: center;    
 }
@@ -382,6 +382,18 @@ input:focus{
 .noResult{
     margin: 15px;
     display: block;
+}
+/* //////////////////////// YOUR MUSIC PAGE /////////////////////////// */
+.buttonItems .button {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+.playlistsContainer{
+    padding: 10px 0;
+}
+.playlistImage{
+    border: 3px solid #282828;
+    padding: 10px;
 }
 
 

@@ -8,6 +8,55 @@ var repeat = false;
 var Shuffle = false;
 var userLoggedIn;
 var timer;
+
+/////////////////////////////////////////////////////////////////
+/////////////////--- FOR DURATION TIME ---//////////////////////
+////////////////////// --- .Done handel More Prefer or precisely AJAX/////////
+
+function createPlaylist() {
+    
+    var popup = prompt("Please Enter the Name of your Playlist");
+    if (popup != null) {
+        $.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn})
+        .done(function (error) {
+            if (error != "") {
+                alert(error);
+                return;
+            }
+            /// do something when AJAX retuns
+            openPage("yourMusic.php");
+        });
+    }
+}
+
+/////////////////////////////////////////////////////////////////
+
+/////////////////--- FOR DAELETE PLAYLIST ---//////////////////////
+////////////////////// --- .Done handel More Prefer or precisely AJAX/////////
+
+function deletePlaylist(playlistId) {
+
+    var prompt = confirm("Are you sure ? You want to Delete this Playlist ");
+    if (prompt == true) {
+
+        $.post("includes/handlers/ajax/deletePlaylist.php", {
+                playlistId: playlistId
+            })
+            .done(function (error) {
+                if (error != "") {
+                    alert(error);
+                    return;
+                }
+                /// do something when AJAX retuns
+                openPage("yourMusic.php");
+            });
+    }
+}
+
+/////////////////////////////////////////////////////////////////
+
+
+
 //////////////////--- FOR PAGE TRANSITIONS ---////////////////////
 function openPage(url){
     if (timer != null) {
