@@ -9,8 +9,68 @@ var Shuffle = false;
 var userLoggedIn;
 var timer;
 
+////////////////--- EVET WHEN WE SCROLL TO HIDE OPTION OF (...) ALBUM PAGE ---/////////////////////////////////
+$(window).scroll(function () {
+    hideOptionsMenu();
+});
 /////////////////////////////////////////////////////////////////
-/////////////////--- FOR DURATION TIME ---//////////////////////
+
+////////////////--- EVET WHEN WE CLICK AWAY TO HIDE OPTION OF (...) ALBUM PAGE ---/////////////////////////////////
+$(document).click(function (click) {
+    var target = $(click.target);
+    if (!target.hasClass("item") && !target.hasClass("optionButton")) {
+        hideOptionsMenu();
+    }
+});
+/////////////////////////////////////////////////////////////////
+
+////////////////--- EVET to get ID's of Song And Playlist ON (album.php) this Button (...) ---/////////////////////////////////
+$(document).on("change" ,"select.playlist",function () {
+    var select = $(this);
+    var playlistId = select.val();
+    var songId = select.prev(".songId").val();
+    // console.log("playlistId: "+ playlistId);
+    // console.log("songId: " + songId);
+
+    $.post("includes/handlers/ajax/addToplaylist.php",  {playlistId: playlistId , songId: songId})
+    .done(function (error) {
+        
+        if (error != "") {
+            alert(error);
+            return;
+        }
+
+        hideOptionsMenu();
+        select.val("");
+        
+    });
+});
+/////////////////////////////////////////////////////////////////
+
+/////////////////--- FOR SONG FROM DAELETE PLAYLIST ---//////////////////////
+////////////////////// --- .Done handel More Prefer or precisely AJAX/////////
+
+function removeFromPlaylist(button ,playlistId) {
+    var songId = $(button).prevAll(".songId").val();
+
+    $.post("includes/handlers/ajax/removeFromPlaylist.php", {
+        playlistId: playlistId , songId: songId
+    })
+        .done(function (error) {
+            if (error != "") {
+                alert(error);
+                return;
+            }
+            /// do something when AJAX retuns
+            openPage("playlist.php?id=" + playlistId);
+        });
+
+}
+
+/////////////////////////////////////////////////////////////////
+
+
+/////////////////--- FOR CREATE PLAYLIST ---//////////////////////
 ////////////////////// --- .Done handel More Prefer or precisely AJAX/////////
 
 function createPlaylist() {
@@ -148,4 +208,27 @@ function Audio() {
 /////////////////--- FOR ARTIST PAGE (PLAY)BUTTON ---//////////////////////
 function playFirstSong(params) {
     setTrack(tempPlaylist[0], tempPlaylist, true)
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/////////////////--- FOR MENU HIDE RIGHT NEXT TO (...) IN ALBUM ---//////////////////////
+function hideOptionsMenu() {  /////////// HTML Object (button)
+    var menu = $(".optionsMenu");
+    if (menu.css("display") != "none") {
+        menu.css("display", "none");
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+/////////////////--- FOR MENU DISPLAY RIGHT NEXT TO (...) IN ALBUM ---//////////////////////
+function showOptionsMenu(button) {  /////////// HTML Object (button)
+    var songId = $(button).prevAll(".songId").val();
+    var menu = $(".optionsMenu");
+    var menuWidth = menu.width();
+    menu.find(".songId").val(songId);
+    var scrollTop = $(window).scrollTop(); ///scrollTop(): distance form top of windows to top of document
+    var elementOffset = $(button).offset().top;        //// JQuery Object (button) or distance from top of document
+    var top = elementOffset - scrollTop;
+    var left = $(button).position().left;
+    menu.css({ "top": top + "px", "left": left - menuWidth + "px", "display": "inline" });
 }

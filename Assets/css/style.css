@@ -346,6 +346,44 @@ body {
 [role = "link"]{
     cursor: pointer;
 }
+/*////////////////////////////////////////////////////////////////////////////////// */
+/* ???????????????????????????----ADDING SONG TO PLAYLIST - MENU ---?????????????????????????????????????????????????????? */
+
+.optionsMenu{
+    position: fixed;
+    background-color: #282828;
+    width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    z-index: 1000;
+    display: none;
+}
+.optionsMenu .item{
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    font-weight: 400;
+    color: rgba(147, 147, 147, 0.8);
+    cursor: pointer;
+    height: 40px;
+    background-color: #282828;
+    font-size: 14px;
+}
+.optionsMenu .item:hover{
+    color: #fff;
+    background-color: #333;
+    border-color: #333;
+    border-radius: 10px;
+}
+.optionsMenu select{
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 10px;
+}
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////// */
 /* //////////////////////// SEARCH PAGE /////////////////////////// */
 .searchContainer{
     background-color: #242424;
